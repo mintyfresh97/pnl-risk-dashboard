@@ -1,8 +1,18 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
-st.set_page_config(page_title="PnL Risk Dashboard", layout="centered")
+# Render the custom React component
+st.title("PnL & Risk Dashboard")
 
-st.title("Live PnL + Risk Calculator")
+components.declare_component(
+    "my_component",
+    path="frontend/my_component"
+)
 
-# Later you’ll embed the custom component here
-st.info("React component will load here...")
+components.html(
+    """
+    <div id="root"></div>
+    <script src="./frontend/my_component/my_component.js"></script>
+    """,
+    height=100,
+)
