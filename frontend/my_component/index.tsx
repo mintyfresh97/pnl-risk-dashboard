@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../index.css";
+import TradeCard from "./TradeCard"; // <- Added this import
 
 // Precision map based on asset
 const precisionMap = {
@@ -103,6 +104,16 @@ export default function MyComponent() {
         <p><strong>Breakeven Price:</strong> {breakeven}</p>
         <p><strong>RR Ratio:</strong> {(reward / risk).toFixed(2)}:1</p>
       </div>
+
+      {/* Render the Trade Card below */}
+      <TradeCard
+        asset={asset}
+        entry={entry}
+        stop={stop}
+        target={target}
+        size={position}
+        leverage={leverage}
+      />
     </div>
   );
 }
