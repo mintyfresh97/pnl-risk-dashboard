@@ -1,12 +1,13 @@
 // frontend/my_component/my_component.js
 
+import '../../index.css';
 import React from "react";
 import ReactDOM from "react-dom";
 
 const MyComponent = ({ label }) => {
   return (
-    <div style={{ padding: "1rem", border: "1px solid #ccc", borderRadius: "10px" }}>
-      <h2 style={{ color: "#4CAF50" }}>{label}</h2>
+    <div className="p-4">
+      <h2 className="text-blue-600 font-bold text-lg">{label}</h2>
     </div>
   );
 };
@@ -14,4 +15,6 @@ const MyComponent = ({ label }) => {
 export default MyComponent;
 
 const root = document.getElementById("root");
-ReactDOM.render(<MyComponent label="Hello from Streamlit Component!" />, root);
+if (root) {
+  ReactDOM.render(<MyComponent label="Hello, Tailwind!" />, root);
+}
