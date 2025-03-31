@@ -1,2 +1,3 @@
-streamlit>=1.32.0
-streamlit-component-lib>=1.0.2
+streamlit
+streamlit-component-lib
+pyyaml  # streamlit uses this internally
