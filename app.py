@@ -1,8 +1,18 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(layout="wide")
-st.title("PnL & Risk Dashboard")
+# Load the custom component from the build folder
+my_component = components.declare_component(
+    "my_component",
+    path="frontend/my_component/build"
+)
 
-# Serve the prebuilt HTML + JS directly
-components.html(open("frontend/my_component/build/index.html").read(), height=800)
+# Title
+st.markdown("<h1 style='color:white;'>PnL & Risk Dashboard</h1>", unsafe_allow_html=True)
+
+# Load the component
+result = my_component()
+
+# Optionally display returned result (if any)
+if result:
+    st.json(result)
