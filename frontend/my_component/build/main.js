@@ -47,7 +47,8 @@ function updateField(id, value) {
 function render() {
   const root = document.getElementById("root");
   root.innerHTML = `
-    <div class="p-4 bg-gray-900 text-white rounded-2xl shadow-md max-w-xl mx-auto space-y-4">
+    <div class="p-4 bg-gray-900 text-white rounded-2xl shadow-md max-w-xl mx-auto space-y-4 border border-yellow-500">
+      <h2 class="text-xl font-bold text-yellow-400">[DEBUG] Component loaded</h2>
       <h2 class="text-xl font-bold text-blue-400">PnL Calculator</h2>
       <div class="flex gap-2 flex-wrap">
         ${Object.keys(precisionMap).map(a => `
@@ -71,7 +72,6 @@ function render() {
   calculate();
 }
 
-// This guarantees rendering happens no matter what
 async function init() {
   try {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${asset.toLowerCase()}&vs_currencies=usd`);
