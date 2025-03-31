@@ -71,7 +71,8 @@ function render() {
   calculate();
 }
 
-async function fetchPrice() {
+// This guarantees rendering happens no matter what
+async function init() {
   try {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${asset.toLowerCase()}&vs_currencies=usd`);
     const data = await res.json();
@@ -86,4 +87,4 @@ async function fetchPrice() {
   render();
 }
 
-fetchPrice();
+init();
