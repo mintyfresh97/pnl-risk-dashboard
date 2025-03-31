@@ -1,15 +1,14 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Render the custom React component
+st.set_page_config(layout="wide")
 st.title("PnL & Risk Dashboard")
 
-# Declare and call your component
+# Declare your custom React component
 my_component = components.declare_component(
     "my_component",
     path="frontend/my_component/build"
 )
 
-# Call it and capture any return value
-response = my_component(label="Hello from React!", default="No response")
-st.write("Component says:", response)
+# Call the component (no need to pass label/default unless you use them)
+my_component()
