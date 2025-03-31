@@ -1,3 +1,5 @@
+import { Streamlit } from "streamlit-component-lib";
+
 const precisionMap = {
   BTC: 5, ETH: 4, XRP: 3, ADA: 3, SOL: 5, LINK: 3,
   ONDO: 3, CRV: 3, CVX: 3, SUI: 3, FARTCOIN: 3,
@@ -87,12 +89,7 @@ async function init() {
   render();
 }
 
-init();
-
-import { Streamlit } from "streamlit-component-lib";
-
-// Notify Streamlit that the component is ready
+// Notify Streamlit and start
 Streamlit.setComponentReady();
-
-// Set component height dynamically
 Streamlit.setFrameHeight();
+init();
