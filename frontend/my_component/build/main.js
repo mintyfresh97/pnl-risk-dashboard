@@ -88,3 +88,11 @@ async function init() {
 }
 
 init();
+
+import { Streamlit } from "streamlit-component-lib";
+
+// Notify Streamlit that the component is ready
+Streamlit.setComponentReady();
+
+// Set component height dynamically
+Streamlit.setFrameHeight();
