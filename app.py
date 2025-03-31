@@ -7,7 +7,7 @@ st.title("PnL & Risk Dashboard")
 # Declare and call your component
 my_component = components.declare_component(
     "my_component",
-    path="frontend/my_component"
+    path="frontend/my_component/build"
 )
 
 # Call it and capture any return value
