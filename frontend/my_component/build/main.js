@@ -26,6 +26,21 @@ function calculate() {
   const breakeven = ((entry + stop) / 2).toFixed(digits());
   const rr = (reward / risk).toFixed(2);
 
+  // Send to Streamlit
+  Streamlit.setComponentValue({
+    asset,
+    position,
+    leverage,
+    entry,
+    stop,
+    target,
+    livePrice,
+    risk: risk.toFixed(2),
+    reward: reward.toFixed(2),
+    rrRatio: rr,
+    breakeven
+  });
+
   document.getElementById("output").innerHTML = `
     <p><strong>Live Price:</strong> $${livePrice ?? "N/A"}</p>
     <p><strong>Total Exposure:</strong> £${total}</p>
@@ -89,7 +104,7 @@ async function init() {
   render();
 }
 
-// Notify Streamlit and start
+// Start component
 Streamlit.setComponentReady();
 Streamlit.setFrameHeight();
 init();
